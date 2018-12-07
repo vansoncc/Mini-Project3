@@ -69,15 +69,15 @@ def searchbykewords(username):
 	# username=input('Enter the username to search')
 
 	sql="SELECT * FROM Tweepy_Data"
-	cursor.execute(sql,username)
+	cursor.execute(sql)
 	result = cursor.fetchall()
 
-	print("Second user already has this word", username, "in description:")
+	# print("Second user already has this word", username, "in description:")
 	for user in result:
-		desc = user[3]
+		desc = user[1]
 		desc = desc.split(',')
 		if username in desc:
-			print(user[1])
+			print(user)
 	db.close()
 
 def delete_user(username):
